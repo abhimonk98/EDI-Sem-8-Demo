@@ -1,0 +1,54 @@
+{% extends "mukadam-home.html" %}
+{% block content %}
+
+
+
+
+<div class="m-3" >
+        
+    <select name="district" id="district">
+        <option value="Select a district">==Select District==</option>
+        {%for i,j in districts.iterrows()%}
+        <option value="{{j['District']}}">{{j['District']}}</option>
+        {%endfor%}
+    </select>
+</div>
+<table style="border: 1px solid blue;">
+    <tr>
+        <th style="border: 1px solid black;">Sr.No</th>
+        <th style="border: 1px solid black;">Factory name</th>
+        <th style="border: 1px solid black;">Factory type</th>
+        <th style="border: 1px solid black;">Code no.</th>
+        <th style="border: 1px solid black;">Capacity</th>
+        <th style="border: 1px solid black;">Started Crushing Date</th>
+        <th style="border: 1px solid black;">City</th>
+        <th style="border: 1px solid black;">Address</th>
+        <th style="border: 1px solid black;">Phone No</th>
+        <th style="border: 1px solid black;">No of workers</th>
+        <th style="border: 1px solid black;">Send Request</th>
+    </tr>
+    {%for i,j in sugar_factory.iterrows()%}
+    <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">{{j['S.No.']}}</td>
+        <td style="border: 1px solid black;">{{j['Factory Name']}}</td>
+        <td style="border: 1px solid black;">{{j['Factory Type']}}</td>
+        <td style="border: 1px solid black;">{{j['Code No.']}}</td>
+        <td style="border: 1px solid black;">{{j['Capacity']}}</td>
+        <td style="border: 1px solid black;">{{j['Started CrushingDate']}}</td>
+        <td style="border: 1px solid black;">{{j['City']}}</td>
+        <td style="border: 1px solid black;">{{j['Address']}}</td>
+        <td style="border: 1px solid black;">{{j['PhoneNo.']}}</td>
+        
+        <td style="border: 1px solid black;">
+            <input type="text" style="width:100%">
+        </td>
+        <td style="border: 1px solid black;">
+            <button type="button">Send Request</button>
+        </td>
+    </tr> 
+    {%endfor%}
+</table>
+
+
+
+{% endblock %}

@@ -1,0 +1,358 @@
+﻿District,Taluka
+Kolhapur,Karvir
+Kolhapur,Panhala
+Kolhapur,Shahuwadi
+Kolhapur,Kagal
+Kolhapur,Hatkanangale
+Kolhapur,Shirol
+Kolhapur,Radhanagari
+Kolhapur,Gaganbawada
+Kolhapur,Bhudargad
+Kolhapur,Gadhinglaj
+Kolhapur,Chandgad
+Kolhapur,Ajra
+Sangli ,Miraj 
+Sangli ,Kavathe-Mahankal 
+Sangli ,Tasgaon 
+Sangli ,Jat 
+Sangli ,Walwa (Islampur) 
+Sangli ,Shirala 
+Sangli ,Khanapur-Vita 
+Sangli ,Atpadi 
+Sangli ,Palus 
+Sangli ,Kadegaon 
+Satara,Satara
+Satara,Jaoli 
+Satara,Koregaon 
+Satara,Wai 
+Satara,Mahabaleshwar 
+Satara,Khandala 
+Satara,Phaltan
+Satara,Maan (Dahiwadi) 
+Satara,Khatav (Vaduj) 
+Satara,Patan
+Satara,Karad 
+Pune,Pune City
+Pune,Haveli 
+Pune,Khed (Rajgurunagar) 
+Pune,Junnar 
+Pune,Ambegaon (Ghodegaon)
+Pune,Maval (Vadgaon) 
+Pune,Mulshi (Paud) 
+Pune,Shirur 
+Pune,Purandhar (Saswad) 
+Pune,Velhe 
+Pune,Bhor 
+Pune,Baramati 
+Pune,Indapur 
+Pune,Daund 
+Ahmednagar ,Nagar 
+Ahmednagar ,Shevgaon 
+Ahmednagar ,Pathardi 
+Ahmednagar ,Parner 
+Ahmednagar ,Sangamner 
+Ahmednagar ,Kopargaon 
+Ahmednagar ,Akole 
+Ahmednagar ,Shrirampur
+Ahmednagar ,Nevasa 
+Ahmednagar ,Rahata 
+Ahmednagar ,Rahuri
+Ahmednagar ,Shrigonda 
+Ahmednagar ,Karjat 
+Ahmednagar ,Jamkhed 
+Solapur ,Solapur North
+Solapur ,Barshi 
+Solapur ,Solapur South
+Solapur ,Akkalkot 
+Solapur ,Madha 
+Solapur ,Karmala 
+Solapur ,Pandharpur 
+Solapur ,Mohol 
+Solapur ,Malshiras 
+Solapur ,Sangole 
+Solapur ,Mangalvedhe 
+Osmanabad,Osmanabad 
+Osmanabad,Tuljapur 
+Osmanabad,Bhum 
+Osmanabad,Paranda 
+Osmanabad,Washi 
+Osmanabad,Kalamb 
+Osmanabad,Lohara 
+Osmanabad,Umarga 
+Latur,Latur 
+Latur,Renapur 
+Latur,Ahmedpur 
+Latur,Jalkot 
+Latur,Chakur 
+Latur,Shirur Anantpal 
+Latur,Ausa 
+Latur,Nilanga 
+Latur,Deoni 
+Latur,Udgir 
+Beed,Beed 
+Beed,Ashti 
+Beed,Patoda 
+Beed,Shirur-Kasar 
+Beed,Georai 
+Beed,Majalgaon 
+Beed,Wadwani
+Beed,Kaij 
+Beed,Dharur 
+Beed,Parli 
+Beed,Ambejogai 
+Aurangabad,Aurangabad
+Aurangabad,Kannad 
+Aurangabad,Soegaon 
+Aurangabad,Sillod 
+Aurangabad,Phulambri 
+Aurangabad,Khuldabad 
+Aurangabad,Vaijapur 
+Aurangabad,Gangapur 
+Aurangabad,Paithan 
+Jalna,Jalna 
+Jalna,Bhokardan 
+Jalna,Jafrabad 
+Jalna,Badnapur 
+Jalna,Ambad 
+Jalna,Ghansawangi 
+Jalna,Partur 
+Jalna,Mantha 
+Parbhani,Parbhani 
+Parbhani,Sonpeth 
+Parbhani,Gangakhed 
+Parbhani,Palam 
+Parbhani,Purna 
+Parbhani,Sailu 
+Parbhani,Jintur 
+Parbhani,Manwath 
+Parbhani,Pathri 
+Hingoli,Hingoli 
+Hingoli,Sengaon 
+Hingoli,Kalamnuri 
+Hingoli,Basmath 
+Hingoli,Aundha Nagnath 
+Nanded,Nanded
+Nanded,Ardhapur 
+Nanded,Mudkhed 
+Nanded,Bhokar 
+Nanded,Umri 
+Nanded,Loha 
+Nanded,Kandhar 
+Nanded,Kinwat 
+Nanded,Himayatnagar 
+Nanded,Hadgaon 
+Nanded,Mahur 
+Nanded,Deglur 
+Nanded,Mukhed 
+Nanded,Dharmabad 
+Nanded,Biloli 
+Nanded,Naigaon (Khairgaon) 
+Yavatmal,Yavatmal 
+Yavatmal,Arni 
+Yavatmal,Babhulgaon 
+Yavatmal,Kalamb 
+Yavatmal,Darwha 
+Yavatmal,Digras 
+Yavatmal,Ner 
+Yavatmal,Pusad 
+Yavatmal,Umarkhed 
+Yavatmal,Mahagaon 
+Yavatmal,Kelapur (Pandharkawada) 
+Yavatmal,Ralegaon 
+Yavatmal,Ghatanji 
+Yavatmal,Wani 
+Yavatmal,Maregaon 
+Yavatmal,Zari Jamani
+Chandrapur,Chandrapur
+Chandrapur,Saoli 
+Chandrapur,Mul 
+Chandrapur,Ballarpur 
+Chandrapur,Pombhurna 
+Chandrapur,Gondpimpri 
+Chandrapur,Warora 
+Chandrapur,Chimur 
+Chandrapur,Bhadravati 
+Chandrapur,Bramhapuri 
+Chandrapur,Nagbhid 
+Chandrapur,Sindewahi 
+Chandrapur,Rajura 
+Chandrapur,Korpana 
+Chandrapur,Jivati 
+Gadchiroli,Gadchiroli
+Gadchiroli,Dhanora 
+Gadchiroli,Chamorshi 
+Gadchiroli,Mulchera 
+Gadchiroli,Desaiganj (Vadasa) 
+Gadchiroli,Armori 
+Gadchiroli,Kurkheda 
+Gadchiroli,Korchi 
+Gadchiroli,Aheri 
+Gadchiroli,Bhamragad 
+Gadchiroli,Sironcha 
+Gondia,Gondia 
+Gondia,Tirora 
+Gondia,Goregaon 
+Gondia,Arjuni Morgaon 
+Gondia,Amgaon 
+Gondia,Salekasa 
+Gondia,Sadak Arjuni 
+Gondia,Deori 
+Bhandara,Bhandara 
+Bhandara,Tumsar 
+Bhandara,Pauni 
+Bhandara,Mohadi 
+Bhandara,Sakoli 
+Bhandara,Lakhni 
+Bhandara,Lakhandur 
+Nagpur,Nagpur (Urban)
+Nagpur,Nagpur (Rural)
+Nagpur,Kamptee 
+Nagpur,Hingna 
+Nagpur,Katol 
+Nagpur,Narkhed 
+Nagpur,Savner 
+Nagpur,Kalameshwar 
+Nagpur,Ramtek 
+Nagpur,Mouda 
+Nagpur,Parseoni 
+Nagpur,Umred 
+Nagpur,Kuhi 
+Nagpur,Bhiwapur 
+Wardha,Wardha
+Wardha,Deoli 
+Wardha,Seloo 
+Wardha,Arvi 
+Wardha,Ashti 
+Wardha,Karanja 
+Wardha,Hinganghat 
+Wardha,Samudrapur 
+Amravati,Amravati 
+Amravati,Bhatukali 
+Amravati,Nandgaon Khandeshwar 
+Amravati,Dharni (Amravati) 
+Amravati,Chikhaldara 
+Amravati,Achalpur 
+Amravati,Chandurbazar 
+Amravati,Morshi 
+Amravati,Warud 
+Amravati,Daryapur 
+Amravati,Anjangaon-Surji 
+Amravati,Chandur 
+Amravati,Dhamangaon 
+Amravati,Tiosa 
+Washi,Washim 
+Washi,Malegaon 
+Washi,Risod 
+Washi,Mangrulpir 
+Washi,Karanja 
+Washi,Manora 
+Akola,Akola 
+Akola,Akot 
+Akola,Telhara 
+Akola,Balapur 
+Akola,Patur 
+Akola,Murtajapur 
+Akola,Barshitakli 
+Buldhana,Buldhana
+Buldhana,Chikhli 
+Buldhana,Deulgaon Raja
+Buldhana,Jalgaon Jamod 
+Buldhana,Sangrampur 
+Buldhana,Malkapur 
+Buldhana,Motala 
+Buldhana,Nandura 
+Buldhana,Khamgaon 
+Buldhana,Shegaon 
+Buldhana,Mehkar 
+Buldhana,Sindkhed Raja
+Buldhana,Lonar 
+Jalgaon,Jalgaon
+Jalgaon,Jamner 
+Jalgaon,Erandol 
+Jalgaon,Dharangaon 
+Jalgaon,Bhusawal 
+Jalgaon,Raver 
+Jalgaon,Muktainagar (Edalabad) 
+Jalgaon,Bodwad 
+Jalgaon,Yawal 
+Jalgaon,Amalner
+Jalgaon,Parola 
+Jalgaon,Chopda 
+Jalgaon,Pachora
+Jalgaon,Bhadgaon 
+Jalgaon,Chalisgaon 
+Dhule,Dhule
+Dhule,Sakri 
+Dhule,Sindkheda
+Dhule,Shirpur 
+Nandurbar,Nandurbar
+Nandurbar,Navapur 
+Nandurbar,Shahada 
+Nandurbar,Taloda
+Nandurbar,Akkalkuwa 
+Nandurbar,Akrani (Dhadgaon) 
+Nashik,Nashik
+Nashik,Igatpuri 
+Nashik,Dindori 
+Nashik,Peth 
+Nashik,Trimbakeshwar 
+Nashik,Kalwan 
+Nashik,Deola 
+Nashik,Surgana 
+Nashik,Baglan (Satana) 
+Nashik,Malegaon
+Nashik,Nandgaon 
+Nashik,Chandwad 
+Nashik,Niphad
+Nashik,Sinnar 
+Nashik,Yeola 
+Palghar,Palghar
+Palghar,Vasai 
+Palghar,Dahanu 
+Palghar,Talasari 
+Palghar,Jawhar 
+Palghar,Mokhada 
+Palghar,Vada 
+Palghar,Vikramgad 
+Thane,Thane
+Thane,Kalyan 
+Thane,Murbad 
+Thane,Bhiwandi 
+Thane,Shahapur 
+Thane,Ulhasnagar 
+Thane,Ambarnath 
+Raigad,Pen 
+Raigad,Alibaug
+Raigad,Murud 
+Raigad,Panvel 
+Raigad,Uran 
+Raigad,Karjat (Matheran) 
+Raigad,Khalapur 
+Raigad,Mangaon
+Raigad,Tala 
+Raigad,Roha 
+Raigad,Sudhagad (Pali) 
+Raigad,Mahad 
+Raigad,Poladpur 
+Raigad,Shrivardhan 
+Raigad,Mhasla 
+Mumbai City sub-urb,Kurla 
+Mumbai City sub-urb,Andheri 
+Mumbai City sub-urb,Borivali 
+Ratnagiri,Ratnagiri
+Ratnagiri,Sangameshwar (Deorukh)
+Ratnagiri,Lanja 
+Ratnagiri,Rajapur 
+Ratnagiri,Chiplun 
+Ratnagiri,Guhagar 
+Ratnagiri,Dapoli 
+Ratnagiri,Mandangad 
+Ratnagiri,Khed 
+Sindhudurg,Kankavli
+Sindhudurg,Vaibhavwadi 
+Sindhudurg,Devgad 
+Sindhudurg,Malwan 
+Sindhudurg,Sawantwadi
+Sindhudurg,Kudal 
+Sindhudurg,Vengurla 
+Sindhudurg,Dodamarg (Kasal)
