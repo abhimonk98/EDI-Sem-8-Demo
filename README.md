@@ -1,2 +1,1 @@
-# Sugar-Factory-Project
-Sugar Factory Farm Sector Labor Management
+EDI Sem 8 Demo
