@@ -29,22 +29,33 @@ def mukadamhome():
 def mukadamsendrequest():
     data = pd.read_csv("sugar_factories_maharashtra.csv")
     data = data.replace(np.nan,0)
-    districts = pd.read_csv("districts.csv")
+    talukas = pd.read_csv("districts.csv")
 
     if request.method=='GET':
-        return render_template('mukadam-send-request.html',sugar_factory=data,districts=districts)
+        return render_template('mukadam-send-request.html',sugar_factory=data,talukas=talukas,districts=talukas.District.unique())
     elif request.method=='POST':
         return redirect('/mukadam-send-request')
 
 @app.route('/mukadam-enter-worker-performance',methods=['GET','POST'])
 def mukadamenterworkerperformance():
-    return render_template('mukadam-enter-performance.html')
+    return render_template('mukadam-enter-worker-performance.html')
 
 @app.route('/mukadam-register-worker',methods=['GET','POST'])
 def mukadamregisterworker():
-    return render_template('mukadam-register-worker.html')
+    if request.method == 'GET':
+        return render_template('mukadam-register-worker.html')
+    elif request.method == 'POST':
+        data = pd.read_csv("sugar_factories_maharashtra.csv")
+        data = data.replace(np.nan,0)
+        talukas = pd.read_csv("districts.csv")
+
+        if(request.form.get('aadhar')=="1"):
+            message="Worker is already registered! Cannot register again."
+        else:
+            message=""
+        return render_template('mukadam-register-worker.html',message=message,talukas=talukas,districts=talukas.District.unique())
 
 if __name__ == "__main__":  
     
-    print(type(data)) 
+    # print(type(data)) 
     app.run( debug=True, threaded=True, host='0.0.0.0')

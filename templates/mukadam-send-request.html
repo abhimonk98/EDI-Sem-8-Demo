@@ -5,50 +5,71 @@
 
 
 <div class="m-3" >
-        
+    <div class="mb-4">
+        <h5>You have __ no of workers</h5>
+    </div>
     <select name="district" id="district">
         <option value="Select a district">==Select District==</option>
-        {%for i,j in districts.iterrows()%}
-        <option value="{{j['District']}}">{{j['District']}}</option>
+        {%for i in districts%}
+        <option value="{{i}}">{{i}}</option>
         {%endfor%}
     </select>
+    <select name="taluka" id="taluka">
+        <option value="Select a Taluka">==Select Taluka==</option>
+        {%for i,j in talukas.iterrows()%}
+        <option value="{{j['Taluka']}}">{{j['Taluka']}}</option>
+        {%endfor%}
+    </select>
+    <button>Search Factory</button>
 </div>
-<table style="border: 1px solid blue;">
-    <tr>
-        <th style="border: 1px solid black;">Sr.No</th>
-        <th style="border: 1px solid black;">Factory name</th>
-        <th style="border: 1px solid black;">Factory type</th>
-        <th style="border: 1px solid black;">Code no.</th>
-        <th style="border: 1px solid black;">Capacity</th>
-        <th style="border: 1px solid black;">Started Crushing Date</th>
-        <th style="border: 1px solid black;">City</th>
-        <th style="border: 1px solid black;">Address</th>
-        <th style="border: 1px solid black;">Phone No</th>
-        <th style="border: 1px solid black;">No of workers</th>
-        <th style="border: 1px solid black;">Send Request</th>
-    </tr>
-    {%for i,j in sugar_factory.iterrows()%}
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">{{j['S.No.']}}</td>
-        <td style="border: 1px solid black;">{{j['Factory Name']}}</td>
-        <td style="border: 1px solid black;">{{j['Factory Type']}}</td>
-        <td style="border: 1px solid black;">{{j['Code No.']}}</td>
-        <td style="border: 1px solid black;">{{j['Capacity']}}</td>
-        <td style="border: 1px solid black;">{{j['Started CrushingDate']}}</td>
-        <td style="border: 1px solid black;">{{j['City']}}</td>
-        <td style="border: 1px solid black;">{{j['Address']}}</td>
-        <td style="border: 1px solid black;">{{j['PhoneNo.']}}</td>
-        
-        <td style="border: 1px solid black;">
-            <input type="text" style="width:100%">
-        </td>
-        <td style="border: 1px solid black;">
-            <button type="button">Send Request</button>
-        </td>
-    </tr> 
-    {%endfor%}
-</table>
 
+<div style="overflow: scroll; width: 100%; height: 400px;">
+    <table style="border: 1px solid blue; ">
+        <tr>
+            <th style="border: 1px solid black;">Sr.No</th>
+            <th style="border: 1px solid black;">Factory name</th>
+            <th style="border: 1px solid black;">Factory type</th>
+            <th style="border: 1px solid black;">Code no.</th>
+            <th style="border: 1px solid black;">Capacity</th>
+            <th style="border: 1px solid black;">Started Crushing Date</th>
+            <th style="border: 1px solid black;">District</th>
+            <th style="border: 1px solid black;">Taluka</th>
+            <th style="border: 1px solid black;">Address</th>
+            <th style="border: 1px solid black;">Phone No</th>
+            <th style="border: 1px solid black;">Crop Area</th>
+            <th style="border: 1px solid black;">Required no of workers</th>
+            <th style="border: 1px solid black;">No of workers</th>
+            <th style="border: 1px solid black;">Send Request</th>
+        </tr>
+        {%for i,j in sugar_factory.iterrows()%}
+        <tr style="border: 1px solid black;">
+            <td style="border: 1px solid black;">{{j['S.No.']}}</td>
+            <td style="border: 1px solid black;">{{j['Factory Name']}}</td>
+            <td style="border: 1px solid black;">{{j['Factory Type']}}</td>
+            <td style="border: 1px solid black;">{{j['Code No.']}}</td>
+            <td style="border: 1px solid black;">{{j['Capacity']}}</td>
+            <td style="border: 1px solid black;">{{j['Started CrushingDate']}}</td>
+            <td style="border: 1px solid black;">{{j['City']}}</td>
+            <td style="border: 1px solid black;">{{j['City']}}</td>
+            <td style="border: 1px solid black;">{{j['Address']}}</td>
+            <td style="border: 1px solid black;">{{j['PhoneNo.']}}</td>
+            <td style="border: 1px solid black;">{{j['Crop Area']}}</td>
+            <td style="border: 1px solid black;">{{j['Required no of workers']}}</td>
+            
+            <td style="border: 1px solid black;">
+                <input type="text" style="width:100%">
+            </td>
+            <td style="border: 1px solid black;">
+                <button type="button">Send Request</button>
+            </td>
+        </tr> 
+        {%endfor%}
+    </table>
+    
+</div>
+<div class="p-4" style="text-align: center;">
+    <button type="submit">Submit</button>
+</div>
 
 
 {% endblock %}

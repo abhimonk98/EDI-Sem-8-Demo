@@ -1,6 +1,67 @@
 {% extends "mukadam-home.html" %}
 {% block content %}
 <div>
-    Hello send request
+    <form method="POST">
+        <div style="text-align: center; font-size: larger; margin-top: 70px;">
+            Enter Worker Aadhar no./PAN no. / name: 
+            <span><input required name="aadhar" id=aadhar></span>
+            <button type="submit">Submit</button>   
+        </div>
+    </form>
+    <div style="text-align: center;">
+        {% if message!="" %}
+            {{message}}
+        {% else %}
+            Please enter worker details
+            <form method="POST">
+                <div class="row" style="margin-top: 40px;">
+                    <div class="col">
+                        <div >
+                            <input placeholder="Enter first name">
+                        </div>
+                        <div style="text-align: left; padding-left: 25%; margin-top: 20px;"> 
+                            <p>Gender:</p>
+                            <input type="radio" id="male" name="gender" value="male">
+                            <label for="male">Male</label><br>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Female</label><br>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="col">
+                        <input placeholder="Enter middle name">
+                        <div style="margin-top: 20px;">
+                            <select name="district" id="district">
+                                <option value="Select a district">==Select District==</option>
+                                {%for i in districts%}
+                                <option value="{{i}}">{{i}}</option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <input placeholder="Enter last name">
+                        <div style="margin-top: 20px;">
+                            <select name="taluka" id="taluka">
+                                <option value="Select a Taluka">==Select Taluka==</option>
+                                {%for i,j in talukas.iterrows()%}
+                                <option value="{{j['Taluka']}}">{{j['Taluka']}}</option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                    </div>
+            
+                </div>
+                <div style="margin-top: 30px;">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+            
+        {% endif %}
+    </div>
+    
+    
+    
 </div>
 {% endblock %}
