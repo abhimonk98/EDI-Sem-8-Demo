@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect,session
 import pandas as pd 
 import numpy as np
 from flask_session import Session
@@ -36,13 +36,15 @@ def homepage():
 
 @app.route('/sugar-factory-home',methods=['GET'])
 def sugarfactoryhome():
-    # print(SUGAR_ID)
     return render_template('sugar-factory-home.html')
 
 @app.route('/mukadam-home',methods=['GET'])
 def mukadamhome():
-    # print(MUKADAM_ID)
     return render_template('mukadam-home.html')
+
+@app.route('/mukadam-dashboard',methods=['GET'])
+def mukadamdashboard():
+    return render_template('mukadam-dashboard.html')
 
 @app.route('/mukadam-send-request',methods=['GET','POST'])
 def mukadamsendrequest():
@@ -66,7 +68,7 @@ def registermukadam():
     elif request.method == 'POST':
         data = pd.read_csv('mukadam.csv')
         name = request.form.get('name')
-        aadhar = request.form.get('aadhar')
+        aadhar = int(request.form.get('aadhar'))
         found = data['aadhar'].where(data['aadhar'] == aadhar).count()
         if found>0:
             return 'Mukadam already registered!'
