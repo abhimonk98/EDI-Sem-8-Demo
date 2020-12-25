@@ -4,7 +4,7 @@
     <form method="POST">
         <div style="text-align: center; font-size: larger; margin-top: 70px;">
             Enter Worker Aadhar no./PAN no. / name: 
-            <span><input required name="aadhar" id=aadhar></span>
+            <span><input required name="aadhar" id=aadhar value="{{aadhar}}"></span>
             <button type="submit">Submit</button>   
         </div>
     </form>
@@ -17,7 +17,7 @@
                 <div class="row" style="margin-top: 40px;">
                     <div class="col">
                         <div >
-                            <input placeholder="Enter first name">
+                            <input placeholder="Enter first name" name="name">
                         </div>
                         <div style="text-align: left; padding-left: 25%; margin-top: 20px;"> 
                             <p>Gender:</p>
@@ -26,7 +26,10 @@
                             <input type="radio" id="female" name="gender" value="female">
                             <label for="female">Female</label><br>
                         </div>
-                        
+                        <div style="text-align: left; padding-left: 25%; margin-top: 20px;">
+                            <input placeholder="Mobile no" name="contact">
+                        </div>
+
                         
                     </div>
                     <div class="col">
