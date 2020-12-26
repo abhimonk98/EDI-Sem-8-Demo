@@ -2,11 +2,9 @@
 {% block content %}
 
 
-
-
 <div class="m-3" >
     <div class="mb-4">
-        <h5>You have __ no of workers</h5>
+        <h5>You have {{current_no_of_workers}} no of workers</h5>
     </div>
     <select name="district" id="district">
         <option value="Select a district">==Select District==</option>
@@ -24,7 +22,8 @@
 </div>
 
 <div style="overflow: scroll; width: 100%; height: 400px;">
-    <table style="border: 1px solid blue; ">
+    <form method="post">
+        <table style="border: 1px solid blue; ">
         <tr>
             <th style="border: 1px solid black;">Sr.No</th>
             <th style="border: 1px solid black;">Factory name</th>
@@ -55,21 +54,36 @@
             <td style="border: 1px solid black;">{{j['PhoneNo.']}}</td>
             <td style="border: 1px solid black;">{{j['Crop Area']}}</td>
             <td style="border: 1px solid black;">{{j['Required no of workers']}}</td>
-            
-            <td style="border: 1px solid black;">
-                <input type="text" style="width:100%">
+
+            <td style="border: 1px solid black;" >
+                <input type="text" style="width:100%" name="input{{j['Code No.']}}" id="input{{j['Code No.']}}">
             </td>
-            <td style="border: 1px solid black;">
-                <button type="button">Send Request</button>
+            <td style="border: 1px solid black;" >
+                <button type="submit" name="button{{j['Code No.']}}" id="{{j['Code No.']}}" onclick="Required(this)">Send Request</button>
             </td>
-        </tr> 
+        </tr>
         {%endfor%}
     </table>
+    </form>
+
     
 </div>
-<div class="p-4" style="text-align: center;">
-    <button type="submit">Submit</button>
-</div>
 
+<script type="text/javascript">
+function Required(button){
+    var inputs = document.querySelectorAll("input");
+    console.log(inputs);
+    for(var i = 0, len = inputs.length; i < len; i++) {
+        inputs[i].removeAttribute("required");
+    }
+
+    var id = button.id;
+    console.log(id);
+    var input_id = "input" + id;
+    document.getElementById(input_id).required = true;
+
+}
+
+</script>
 
 {% endblock %}
