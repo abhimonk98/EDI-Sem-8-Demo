@@ -103,24 +103,51 @@ def mukadamsendrequest():
             mukadam_data.at[
                 found_mukadam_index, 'current no of workers'] = current_no_of_workers - assigned_no_of_workers
             mukadam_data.to_csv('mukadam.csv')
+
+            # print(type(assigned_no_of_workers))
+
+            requests_data = pd.read_csv('requests.csv')
+            new_request = pd.DataFrame({
+                "mukadam aadhar": [session.get('id')],
+                "requested workers": [assigned_no_of_workers],
+                "factory code no": [factory_code],
+                "request date": [datetime.datetime.now().strftime("%x")],
+                "request status": ['pending']
+            })
+
+            data = requests_data.append(new_request, ignore_index=True)
+            print(data)
+            data.to_csv('requests.csv', index=False)
+
             return '<h4>Successfully registered ' + str(assigned_no_of_workers) + ' workers!</h4>'
 
         else:
-            return '<h4>ERROR: check your current no of workers!</h4> '
-
-        # print(current_no_of_workers[0])
-        # if assigned_no_of_workers<=required_no_of_workers and assigned_no_of_workers<=current_no_of_workers:
-        #     return 'Success'
-
-        # return redirect('/mukadam-send-request')
+            return "<h4>ERROR: check your available workers/ factory's requirement!</h4> "
 
 
 @app.route('/mukadam-enter-worker-performance', methods=['GET', 'POST'])
 def mukadamenterworkerperformance():
     return render_template('mukadam-enter-worker-performance.html')
 
-@app.route('/mukadam-assign-worker-to-factory',methods=['GET','POST'])
+
+@app.route('/mukadam-assign-worker-to-factory', methods=['GET', 'POST'])
 def mukadamassignfactorytoworker():
+    if request.method == 'GET':
+        mukadam_data = pd.read_csv('mukadam.csv')
+        requests_data = pd.read_csv('requests.csv')
+
+        found_mukadam = mukadam_data[mukadam_data['aadhar'] == session.get('id')]
+
+        total_no_of_workers = mukadam_data.loc[found_mukadam.index, 'total no of workers']
+        total_no_of_workers = total_no_of_workers.iloc[0]
+
+        available_workers = mukadam_data.loc[found_mukadam.index, 'current no of workers']
+        available_workers = available_workers.iloc[0]
+
+        need_to_assign = total_no_of_workers - available_workers
+
+        return render_template('mukadam-assign-factory-to-worker.html', need_to_assign=need_to_assign)
+
     return render_template('mukadam-assign-factory-to-worker.html')
 
 
@@ -141,6 +168,7 @@ def registermukadam():
             new_data = pd.DataFrame({"name": [name],
                                      "aadhar": [aadhar],
                                      "current no of workers": [0],
+                                     "total no of workers": [0],
                                      "registered date": [datetime.datetime.now().strftime("%x")]})
             data = mukadam_data.append(new_data, ignore_index=True)
             data.to_csv('mukadam.csv', index=False)
@@ -190,6 +218,7 @@ def mukadamregisterworker():
             found_mukadam = mukadam_data[mukadam_data['aadhar'] == session.get('id')]
             current_no_of_workers = mukadam_data.loc[found_mukadam.index, 'current no of workers']
             mukadam_data.at[found_mukadam.index, 'current no of workers'] = current_no_of_workers + 1
+            mukadam_data.at[found_mukadam.index, 'total no of workers'] = current_no_of_workers + 1
             # print(found_mukadam)
             new_workers_data = pd.DataFrame({"first name": [request.form.get('name')],
                                              "aadhar": session.get('worker_aadhar'),

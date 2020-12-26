@@ -3,7 +3,7 @@
 <div>
     <form method="POST">
         <div style="text-align: center; font-size: larger; margin-top: 70px;">
-            Enter Worker Aadhar no./PAN no. / name: 
+            Enter Worker Aadhar no.:
             <span><input required name="aadhar" id=aadhar value="{{aadhar}}"></span>
             <button type="submit">Submit</button>   
         </div>
@@ -52,6 +52,9 @@
                                 <option value="{{j['Taluka']}}">{{j['Taluka']}}</option>
                                 {%endfor%}
                             </select>
+                        </div>
+                        <div style="margin-top: 30px;">
+                            <button type="button">Upload documents</button>
                         </div>
                     </div>
             

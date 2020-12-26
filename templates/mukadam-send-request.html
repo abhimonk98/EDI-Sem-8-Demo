@@ -4,7 +4,7 @@
 
 <div class="m-3" >
     <div class="mb-4">
-        <h5>You have {{current_no_of_workers}} no of workers</h5>
+        <h5>You can assign {{current_no_of_workers}} workers</h5>
     </div>
     <select name="district" id="district">
         <option value="Select a district">==Select District==</option>
@@ -21,45 +21,49 @@
     <button>Search Factory</button>
 </div>
 
-<div style="overflow: scroll; width: 100%; height: 400px;">
+<div style="overflow: scroll; width: 100%; height: 400px; text-align: center;">
     <form method="post">
         <table style="border: 1px solid blue; ">
         <tr>
             <th style="border: 1px solid black;">Sr.No</th>
             <th style="border: 1px solid black;">Factory name</th>
             <th style="border: 1px solid black;">Factory type</th>
-            <th style="border: 1px solid black;">Code no.</th>
-            <th style="border: 1px solid black;">Capacity</th>
-            <th style="border: 1px solid black;">Started Crushing Date</th>
+<!--            <th style="border: 1px solid black;">Code no.</th>-->
+            <th style="border: 1px solid black;">Crushing Capacity</th>
+<!--            <th style="border: 1px solid black;">Started Crushing Date</th>-->
             <th style="border: 1px solid black;">District</th>
-            <th style="border: 1px solid black;">Taluka</th>
-            <th style="border: 1px solid black;">Address</th>
+<!--            <th style="border: 1px solid black;">Taluka</th>-->
+<!--            <th style="border: 1px solid black;">Address</th>-->
             <th style="border: 1px solid black;">Phone No</th>
-            <th style="border: 1px solid black;">Crop Area</th>
+            <th style="border: 1px solid black; width:100px">Crop Area</th>
             <th style="border: 1px solid black;">Required no of workers</th>
             <th style="border: 1px solid black;">No of workers</th>
             <th style="border: 1px solid black;">Send Request</th>
+            <th style="border: 1px solid black;">Expectations</th>
         </tr>
         {%for i,j in sugar_factory.iterrows()%}
         <tr style="border: 1px solid black;">
             <td style="border: 1px solid black;">{{j['S.No.']}}</td>
             <td style="border: 1px solid black;">{{j['Factory Name']}}</td>
             <td style="border: 1px solid black;">{{j['Factory Type']}}</td>
-            <td style="border: 1px solid black;">{{j['Code No.']}}</td>
-            <td style="border: 1px solid black;">{{j['Capacity']}}</td>
-            <td style="border: 1px solid black;">{{j['Started CrushingDate']}}</td>
+<!--            <td style="border: 1px solid black;">{{j['Code No.']}}</td>-->
+            <td style="border: 1px solid black; text-align: center;">{{j['Capacity']}}</td>
+<!--            <td style="border: 1px solid black;">{{j['Started CrushingDate']}}</td>-->
             <td style="border: 1px solid black;">{{j['City']}}</td>
-            <td style="border: 1px solid black;">{{j['City']}}</td>
-            <td style="border: 1px solid black;">{{j['Address']}}</td>
+<!--            <td style="border: 1px solid black;">{{j['City']}}</td>-->
+<!--            <td style="border: 1px solid black;">{{j['Address']}}</td>-->
             <td style="border: 1px solid black;">{{j['PhoneNo.']}}</td>
-            <td style="border: 1px solid black;">{{j['Crop Area']}}</td>
-            <td style="border: 1px solid black;">{{j['Required no of workers']}}</td>
+            <td style="border: 1px solid black; text-align: center;">{{j['Crop Area']}}</td>
+            <td style="border: 1px solid black; text-align: center;">{{j['Required no of workers']}}</td>
 
             <td style="border: 1px solid black;" >
                 <input type="text" style="width:100%" name="input{{j['Code No.']}}" id="input{{j['Code No.']}}">
             </td>
             <td style="border: 1px solid black;" >
                 <button type="submit" name="button{{j['Code No.']}}" id="{{j['Code No.']}}" onclick="Required(this)">Send Request</button>
+            </td>
+            <td style="border: 1px solid black;" >
+                <input type="text" style="width:100%" name="input{{j['Code No.']}}" id="expectations{{j['Code No.']}}">
             </td>
         </tr>
         {%endfor%}
