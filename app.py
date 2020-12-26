@@ -116,7 +116,7 @@ def mukadamsendrequest():
             })
 
             data = requests_data.append(new_request, ignore_index=True)
-            print(data)
+            # print(data)
             data.to_csv('requests.csv', index=False)
 
             return '<h4>Successfully registered ' + str(assigned_no_of_workers) + ' workers!</h4>'
