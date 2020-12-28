@@ -1,2 +1,3 @@
-,Unnamed: 0,name,aadhar,age,district,taluka,address,contact details,current no of workers,assigned workers,total no of workers,expectations,registered date,total advances received
-0,0,Ramu,1,,,,,,0,,1,,12/26/20,
+name,aadhar,age,district,taluka,address,contact details,current no of workers,total no of workers,expectations,registered date,total advances received
+Ramu,1,,,,,,0,0,,12/26/20,
+Shamu,2,,,,,,0,7,,12/26/20,

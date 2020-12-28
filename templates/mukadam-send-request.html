@@ -67,11 +67,40 @@
             </td>
         </tr>
         {%endfor%}
+
+
     </table>
     </form>
 
-    
 </div>
+
+<div style="text-align:center; margin:2%">
+    <h4>Sent Requests:</h4>
+    <div>
+
+    </div>
+    <table style="margin-left: auto; margin-right: auto;">
+        <tr>
+            {% for col in column_names %}
+            <th style="border: 1px solid black;">{{col}}</th>
+            {% endfor %}
+        </tr>
+        {% for row in row_data %}
+        <tr>
+            {% for col, row_ in zip(column_names, row) %}
+
+                    <td style="border: 1px solid black;">{{row_}}</td>
+
+
+
+            {% endfor %}
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+
 
 <script type="text/javascript">
 function Required(button){

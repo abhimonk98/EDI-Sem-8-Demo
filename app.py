@@ -55,6 +55,13 @@ def mukadamdashboard():
 def mukadamsendrequest():
     data = pd.read_csv("sugar_factories_maharashtra.csv")
     data = data.replace(np.nan, 0)
+
+
+    requests_data_global = pd.read_csv('requests.csv')
+    requests_data_global = requests_data_global[requests_data_global['mukadam aadhar'] == session.get('id')]
+    requests_data_global = requests_data_global[['requested workers','factory name','request date','request status']]
+
+
     talukas = pd.read_csv("districts.csv")
     mukadam_data = pd.read_csv('mukadam.csv')
     found_mukadam = mukadam_data[mukadam_data['aadhar'] == session.get('id')]
@@ -68,10 +75,17 @@ def mukadamsendrequest():
         return render_template('mukadam-send-request.html',
                                sugar_factory=data,
                                talukas=talukas,
-                               districts=talukas.District.unique(), current_no_of_workers=current_no_of_workers)
+                               districts=talukas.District.unique(),
+                               current_no_of_workers=current_no_of_workers,
+                               column_names=requests_data_global.columns.values,
+                               row_data=list(requests_data_global.values.tolist()),
+                               link_column="Sr no",
+                               zip=zip)
     elif request.method == 'POST':
         form = MultiDict(request.form)
         factory_code = 0
+        requests_data = pd.read_csv('requests.csv')
+        # requests_data = requests_data[requests_data[]]
 
         for i in form:
             if i.find('button') == 0:
@@ -102,15 +116,26 @@ def mukadamsendrequest():
         if assigned_no_of_workers <= required_no_of_workers and assigned_no_of_workers <= current_no_of_workers:
             mukadam_data.at[
                 found_mukadam_index, 'current no of workers'] = current_no_of_workers - assigned_no_of_workers
-            mukadam_data.to_csv('mukadam.csv')
+            print(mukadam_data)
+            mukadam_data.to_csv('mukadam.csv', index=False)
+
+            mukadam_name = found_mukadam.loc[found_mukadam_index]['name']
+            mukadam_name = mukadam_name.tolist()
+            mukadam_name = mukadam_name[0]
+
+            factory_name = found_sugar_factory.loc[found_sugar_factory_index]['Factory Name']
+            factory_name = factory_name.tolist()
+            factory_name = factory_name[0]
 
             # print(type(assigned_no_of_workers))
 
             requests_data = pd.read_csv('requests.csv')
             new_request = pd.DataFrame({
                 "mukadam aadhar": [session.get('id')],
+                "mukadam name": [mukadam_name],
                 "requested workers": [assigned_no_of_workers],
                 "factory code no": [factory_code],
+                "factory name": [factory_name],
                 "request date": [datetime.datetime.now().strftime("%x")],
                 "request status": ['pending']
             })
@@ -134,6 +159,7 @@ def mukadamenterworkerperformance():
 def mukadamassignfactorytoworker():
     if request.method == 'GET':
         mukadam_data = pd.read_csv('mukadam.csv')
+        workers_data = pd.read_csv('workers.csv')
         requests_data = pd.read_csv('requests.csv')
 
         found_mukadam = mukadam_data[mukadam_data['aadhar'] == session.get('id')]
@@ -146,7 +172,15 @@ def mukadamassignfactorytoworker():
 
         need_to_assign = total_no_of_workers - available_workers
 
-        return render_template('mukadam-assign-factory-to-worker.html', need_to_assign=need_to_assign)
+        found_workers = workers_data[workers_data['Mukadam Aadhar'] == session.get('id')]
+        print(found_workers)
+        found_workers = found_workers[found_workers['factory assigned'].isna()]
+        # found_workers = found_workers[found_workers['factory assigned'] == '']
+        print(found_workers)
+
+        return render_template('mukadam-assign-factory-to-worker.html',
+                               need_to_assign=need_to_assign,
+                               total_no_of_workers=total_no_of_workers)
 
     return render_template('mukadam-assign-factory-to-worker.html')
 
@@ -170,19 +204,29 @@ def registermukadam():
                                      "current no of workers": [0],
                                      "total no of workers": [0],
                                      "registered date": [datetime.datetime.now().strftime("%x")]})
-            data = mukadam_data.append(new_data, ignore_index=True)
-            data.to_csv('mukadam.csv', index=False)
+            mukadam_data = mukadam_data.append(new_data, ignore_index=True)
+            mukadam_data.to_csv('mukadam.csv', index=False)
             return 'Mukadam is registered successfully!'
 
 
 @app.route('/mukadam-register-worker', methods=['GET', 'POST'])
 def mukadamregisterworker():
+    workers_data_global = pd.read_csv('workers.csv')
+    workers_data_global = workers_data_global[workers_data_global['Mukadam Aadhar'] == session.get('id')]
+    workers_data_global = workers_data_global[['first name', 'middle name', 'last name', 'gender', 'aadhar', 'district',
+                                               'taluka', 'address', 'contact', 'registered date', 'factory assigned',
+                                               'expectations']]
+
     if request.method == 'GET':
-        return render_template('mukadam-register-worker.html')
+        return render_template('mukadam-register-worker.html',
+                               column_names=workers_data_global.columns.values,
+                               row_data=list(workers_data_global.values.tolist()),
+                               link_column="Sr no",
+                               zip=zip)
     elif request.method == 'POST':
 
-        data = pd.read_csv("sugar_factories_maharashtra.csv")
-        data = data.replace(np.nan, 0)
+        # data = pd.read_csv("sugar_factories_maharashtra.csv")
+        # data = data.replace(np.nan, 0)
         talukas = pd.read_csv("districts.csv")
         # worker_aadhar = request.form.get('aadhar')
 
@@ -209,7 +253,11 @@ def mukadamregisterworker():
                                    aadhar=worker_aadhar,
                                    message=message,
                                    talukas=talukas,
-                                   districts=talukas.District.unique())
+                                   districts=talukas.District.unique(),
+                                   column_names=workers_data_global.columns.values,
+                                   row_data=list(workers_data_global.values.tolist()),
+                                   link_column="Sr no",
+                                   zip=zip)
         elif 'name' in request.form:
             # worker_aadhar = request.form.get('worker_aadhar')
             workers_data = pd.read_csv('workers.csv')
@@ -217,9 +265,11 @@ def mukadamregisterworker():
             # print(type(session.get('id')))
             found_mukadam = mukadam_data[mukadam_data['aadhar'] == session.get('id')]
             current_no_of_workers = mukadam_data.loc[found_mukadam.index, 'current no of workers']
+            total_no_of_workers = mukadam_data.loc[found_mukadam.index, 'total no of workers']
             mukadam_data.at[found_mukadam.index, 'current no of workers'] = current_no_of_workers + 1
-            mukadam_data.at[found_mukadam.index, 'total no of workers'] = current_no_of_workers + 1
-            # print(found_mukadam)
+            print(mukadam_data)
+            mukadam_data.at[found_mukadam.index, 'total no of workers'] = total_no_of_workers + 1
+            print(mukadam_data)
             new_workers_data = pd.DataFrame({"first name": [request.form.get('name')],
                                              "aadhar": session.get('worker_aadhar'),
                                              "district": [request.form.get('district')],
@@ -230,6 +280,7 @@ def mukadamregisterworker():
                                              "gender": [request.form.get('gender')]})
             workers_data = workers_data.append(new_workers_data, ignore_index=True)
             # print(workers_data)
+            print(mukadam_data)
             workers_data.to_csv('workers.csv', index=False)
             mukadam_data.to_csv('mukadam.csv', index=False)
             return redirect('/mukadam-register-worker')
