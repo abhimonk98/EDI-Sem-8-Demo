@@ -33,7 +33,7 @@ def homepage():
             if found > 0:
                 return redirect('/mukadam-home')
             else:
-                return 'Please Register Yourself'
+                return redirect('/register-mukadam')
 
 
 @app.route('/sugar-factory-home', methods=['GET'])
